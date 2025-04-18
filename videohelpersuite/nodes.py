@@ -496,6 +496,12 @@ class VideoCombine:
                 else:
                     args += video_format['main_pass'] + bitrate_arg
                     merge_filter_args(args)
+                    print("Debugging ffmpeg_process parameters:")
+                    print("args:", args)
+                    print("video_format:", video_format)
+                    print("video_metadata:", video_metadata)
+                    print("file_path:", file_path)
+                    print("env:", env)
                     output_process = ffmpeg_process(args, video_format, video_metadata, file_path, env)
                 #Proceed to first yield
                 output_process.send(None)
